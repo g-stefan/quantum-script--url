@@ -4,7 +4,7 @@ rem http://unlicense.org/
 rem Created by Grigore Stefan <g_stefan@yahoo.com>
 
 set ACTION=%1
-if "%1" == "" set ACTION=url
+if "%1" == "" set ACTION=make
 
 echo -^> %ACTION% quantum-script-extension-url
 
@@ -18,5 +18,5 @@ echo "Error: %ACTION%"
 exit 1
 :StepX
 
-call :cmdX xyo-cc --mode=%ACTION% @util/quantum-script-extension-url.static.compile.info
-call :cmdX xyo-cc --mode=%ACTION% @util/quantum-script-extension-url.dynamic.compile.info
+call :cmdX xyo-cc --mode=%ACTION% @util/quantum-script-extension-url.static.compile
+call :cmdX xyo-cc --mode=%ACTION% @util/quantum-script-extension-url.dynamic.compile
