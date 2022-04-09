@@ -14,7 +14,7 @@
 #include "quantum-script-extension-url-license.hpp"
 #include "quantum-script-extension-url.hpp"
 #ifndef QUANTUM_SCRIPT_EXTENSION_URL_NO_VERSION
-#include "quantum-script-extension-url-version.hpp"
+#	include "quantum-script-extension-url-version.hpp"
 #endif
 
 #include "quantum-script-variablenull.hpp"
@@ -40,15 +40,15 @@ namespace Quantum {
 					int value;
 					char buf[3];
 					buf[2] = 0;
-					for(k = 0; k < in.length(); ++k) {
-						if(in[k] == '%') {
-							if(k + 1 < in.length()) {
+					for (k = 0; k < in.length(); ++k) {
+						if (in[k] == '%') {
+							if (k + 1 < in.length()) {
 								++k;
 								buf[0] = in[k];
-								if(k + 1 < in.length()) {
+								if (k + 1 < in.length()) {
 									++k;
 									buf[1] = in[k];
-									if(sscanf(buf, "%02X", &value) == 1) {
+									if (sscanf(buf, "%02X", &value) == 1) {
 										out << (char)value;
 									};
 								};
@@ -70,18 +70,9 @@ namespace Quantum {
 					size_t k;
 					int value;
 					char buf[4];
-					for(k = 0; k < in.length(); ++k) {
-						if(
-							(in[k] >= 'A' && in[k] <= 'Z')
-							|| (in[k] >= 'a' && in[k] <= 'z')
-							|| (in[k] == '.')
-							|| (in[k] == '!')
-							|| (in[k] == '~')
-							|| (in[k] == '*')
-							|| (in[k] == '\'')
-							|| (in[k] == '(')
-							|| (in[k] == ')')
-						) {
+					for (k = 0; k < in.length(); ++k) {
+						if (
+						    (in[k] >= 'A' && in[k] <= 'Z') || (in[k] >= 'a' && in[k] <= 'z') || (in[k] == '.') || (in[k] == '!') || (in[k] == '~') || (in[k] == '*') || (in[k] == '\'') || (in[k] == '(') || (in[k] == ')')) {
 							out << in[k];
 							continue;
 						};
@@ -99,7 +90,7 @@ namespace Quantum {
 
 					String url = (arguments->index(0))->toString();
 					size_t index;
-					if(String::indexOf(url, "://", 0, index)) {
+					if (String::indexOf(url, "://", 0, index)) {
 						return VariableString::newVariable(String::substring(url, 0, index));
 					};
 					return VariableNull::newVariable();
@@ -115,9 +106,9 @@ namespace Quantum {
 					size_t part;
 					String firstPart;
 					String secondPart;
-					if(String::indexOf(url, "://", 0, index)) {
-						if(String::indexOf(url, "/", index + 3, part)) {
-							if(String::split2(String::substring(url, index + 3, part - (index + 3)), "@", firstPart, secondPart)) {
+					if (String::indexOf(url, "://", 0, index)) {
+						if (String::indexOf(url, "/", index + 3, part)) {
+							if (String::split2(String::substring(url, index + 3, part - (index + 3)), "@", firstPart, secondPart)) {
 								return VariableString::newVariable(secondPart);
 							};
 							return VariableString::newVariable(String::substring(url, index + 3, part - (index + 3)));
@@ -137,16 +128,15 @@ namespace Quantum {
 					size_t part;
 					String firstPart;
 					String secondPart;
-					if(String::indexOf(url, "://", 0, index)) {
-						if(String::indexOf(url, "/", index + 3, part)) {
-							if(String::split2(String::substring(url, index + 3, part - (index + 3)), "@", firstPart, secondPart)) {
+					if (String::indexOf(url, "://", 0, index)) {
+						if (String::indexOf(url, "/", index + 3, part)) {
+							if (String::split2(String::substring(url, index + 3, part - (index + 3)), "@", firstPart, secondPart)) {
 								return VariableString::newVariable(firstPart);
 							};
 						};
 					};
 					return VariableNull::newVariable();
 				};
-
 
 				static TPointer<Variable> getPathAndFileName(VariableFunction *function, Variable *this_, VariableArray *arguments) {
 #ifdef QUANTUM_SCRIPT_DEBUG_RUNTIME
@@ -158,9 +148,9 @@ namespace Quantum {
 					size_t part;
 					String firstPart;
 					String secondPart;
-					if(String::indexOf(url, "://", 0, index)) {
-						if(String::indexOf(url, "/", index + 3, part)) {
-							if(String::split2(String::substring(url, part), "?", firstPart, secondPart)) {
+					if (String::indexOf(url, "://", 0, index)) {
+						if (String::indexOf(url, "/", index + 3, part)) {
+							if (String::split2(String::substring(url, part), "?", firstPart, secondPart)) {
 								return VariableString::newVariable(firstPart);
 							};
 							return VariableString::newVariable(String::substring(url, part));
@@ -181,10 +171,10 @@ namespace Quantum {
 					String firstPart;
 					String secondPart;
 					String thirdPart;
-					if(String::indexOf(url, "://", 0, index)) {
-						if(String::indexOf(url, "/", index + 3, part)) {
-							if(String::split2(String::substring(url, part + 1), "?", firstPart, secondPart)) {
-								if(String::split2(secondPart, "#", firstPart, thirdPart)) {
+					if (String::indexOf(url, "://", 0, index)) {
+						if (String::indexOf(url, "/", index + 3, part)) {
+							if (String::split2(String::substring(url, part + 1), "?", firstPart, secondPart)) {
+								if (String::split2(secondPart, "#", firstPart, thirdPart)) {
 									return VariableString::newVariable(firstPart);
 								};
 								return VariableString::newVariable(secondPart);
@@ -204,9 +194,9 @@ namespace Quantum {
 					size_t part;
 					String firstPart;
 					String secondPart;
-					if(String::indexOf(url, "://", 0, index)) {
-						if(String::indexOf(url, "/", index + 3, part)) {
-							if(String::split2(String::substring(url, part), "#", firstPart, secondPart)) {
+					if (String::indexOf(url, "://", 0, index)) {
+						if (String::indexOf(url, "/", index + 3, part)) {
+							if (String::split2(String::substring(url, part), "#", firstPart, secondPart)) {
 								return VariableString::newVariable(firstPart);
 							};
 							return VariableString::newVariable(String::substring(url, part));
@@ -218,7 +208,6 @@ namespace Quantum {
 				void registerInternalExtension(Executive *executive) {
 					executive->registerInternalExtension("URL", initExecutive);
 				};
-
 
 				void initExecutive(Executive *executive, void *extensionId) {
 
@@ -253,4 +242,3 @@ extern "C" QUANTUM_SCRIPT_EXTENSION_URL_EXPORT void quantumScriptExtension(Quant
 	Quantum::Script::Extension::URL::initExecutive(executive, extensionId);
 };
 #endif
-
