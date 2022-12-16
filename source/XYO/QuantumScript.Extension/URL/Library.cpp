@@ -12,7 +12,7 @@
 namespace XYO::QuantumScript::Extension::URL {
 
 	static TPointer<Variable> decodeComponent(VariableFunction *function, Variable *this_, VariableArray *arguments) {
-#ifdef QUANTUM_SCRIPT_DEBUG_RUNTIME
+#ifdef XYO_QUANTUMSCRIPT_DEBUG_RUNTIME
 					printf("- url-decode-component\n");
 #endif
 					String in = (arguments->index(0))->toString();
@@ -42,7 +42,7 @@ namespace XYO::QuantumScript::Extension::URL {
 				};
 
 				static TPointer<Variable> encodeComponent(VariableFunction *function, Variable *this_, VariableArray *arguments) {
-#ifdef QUANTUM_SCRIPT_DEBUG_RUNTIME
+#ifdef XYO_QUANTUMSCRIPT_DEBUG_RUNTIME
 					printf("- url-encode-component\n");
 #endif
 
@@ -65,7 +65,7 @@ namespace XYO::QuantumScript::Extension::URL {
 				};
 
 				static TPointer<Variable> getSchemeName(VariableFunction *function, Variable *this_, VariableArray *arguments) {
-#ifdef QUANTUM_SCRIPT_DEBUG_RUNTIME
+#ifdef XYO_QUANTUMSCRIPT_DEBUG_RUNTIME
 					printf("- url-get-scheme-name\n");
 #endif
 
@@ -78,7 +78,7 @@ namespace XYO::QuantumScript::Extension::URL {
 				};
 
 				static TPointer<Variable> getHostNameAndPort(VariableFunction *function, Variable *this_, VariableArray *arguments) {
-#ifdef QUANTUM_SCRIPT_DEBUG_RUNTIME
+#ifdef XYO_QUANTUMSCRIPT_DEBUG_RUNTIME
 					printf("- url-get-host-name-and-port\n");
 #endif
 
@@ -100,7 +100,7 @@ namespace XYO::QuantumScript::Extension::URL {
 				};
 
 				static TPointer<Variable> getUsernameAndPassword(VariableFunction *function, Variable *this_, VariableArray *arguments) {
-#ifdef QUANTUM_SCRIPT_DEBUG_RUNTIME
+#ifdef XYO_QUANTUMSCRIPT_DEBUG_RUNTIME
 					printf("- url-get-username-and-password\n");
 #endif
 
@@ -120,7 +120,7 @@ namespace XYO::QuantumScript::Extension::URL {
 				};
 
 				static TPointer<Variable> getPathAndFileName(VariableFunction *function, Variable *this_, VariableArray *arguments) {
-#ifdef QUANTUM_SCRIPT_DEBUG_RUNTIME
+#ifdef XYO_QUANTUMSCRIPT_DEBUG_RUNTIME
 					printf("- url-get-path-and-file-name\n");
 #endif
 
@@ -142,7 +142,7 @@ namespace XYO::QuantumScript::Extension::URL {
 				};
 
 				static TPointer<Variable> getQuery(VariableFunction *function, Variable *this_, VariableArray *arguments) {
-#ifdef QUANTUM_SCRIPT_DEBUG_RUNTIME
+#ifdef XYO_QUANTUMSCRIPT_DEBUG_RUNTIME
 					printf("- url-get-query\n");
 #endif
 
@@ -166,7 +166,7 @@ namespace XYO::QuantumScript::Extension::URL {
 				};
 
 				static TPointer<Variable> getPathAndFileNameWithQuery(VariableFunction *function, Variable *this_, VariableArray *arguments) {
-#ifdef QUANTUM_SCRIPT_DEBUG_RUNTIME
+#ifdef XYO_QUANTUMSCRIPT_DEBUG_RUNTIME
 					printf("- url-get-path-and-file-name-with-query\n");
 #endif
 
