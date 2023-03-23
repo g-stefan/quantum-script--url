@@ -71,8 +71,8 @@ namespace XYO::QuantumScript::Extension::URL {
 
 		String url = (arguments->index(0))->toString();
 		size_t index;
-		if (String::indexOf(url, "://", 0, index)) {
-			return VariableString::newVariable(String::substring(url, 0, index));
+		if (StringX::indexOf(url, "://", 0, index)) {
+			return VariableString::newVariable(StringX::substring(url, 0, index));
 		};
 		return VariableNull::newVariable();
 	};
@@ -87,14 +87,14 @@ namespace XYO::QuantumScript::Extension::URL {
 		size_t part;
 		String firstPart;
 		String secondPart;
-		if (String::indexOf(url, "://", 0, index)) {
-			if (String::indexOf(url, "/", index + 3, part)) {
-				if (String::split2(String::substring(url, index + 3, part - (index + 3)), "@", firstPart, secondPart)) {
+		if (StringX::indexOf(url, "://", 0, index)) {
+			if (StringX::indexOf(url, "/", index + 3, part)) {
+				if (StringX::split2(StringX::substring(url, index + 3, part - (index + 3)), "@", firstPart, secondPart)) {
 					return VariableString::newVariable(secondPart);
 				};
-				return VariableString::newVariable(String::substring(url, index + 3, part - (index + 3)));
+				return VariableString::newVariable(StringX::substring(url, index + 3, part - (index + 3)));
 			};
-			return VariableString::newVariable(String::substring(url, index + 3));
+			return VariableString::newVariable(StringX::substring(url, index + 3));
 		};
 		return VariableNull::newVariable();
 	};
@@ -109,9 +109,9 @@ namespace XYO::QuantumScript::Extension::URL {
 		size_t part;
 		String firstPart;
 		String secondPart;
-		if (String::indexOf(url, "://", 0, index)) {
-			if (String::indexOf(url, "/", index + 3, part)) {
-				if (String::split2(String::substring(url, index + 3, part - (index + 3)), "@", firstPart, secondPart)) {
+		if (StringX::indexOf(url, "://", 0, index)) {
+			if (StringX::indexOf(url, "/", index + 3, part)) {
+				if (StringX::split2(StringX::substring(url, index + 3, part - (index + 3)), "@", firstPart, secondPart)) {
 					return VariableString::newVariable(firstPart);
 				};
 			};
@@ -129,12 +129,12 @@ namespace XYO::QuantumScript::Extension::URL {
 		size_t part;
 		String firstPart;
 		String secondPart;
-		if (String::indexOf(url, "://", 0, index)) {
-			if (String::indexOf(url, "/", index + 3, part)) {
-				if (String::split2(String::substring(url, part), "?", firstPart, secondPart)) {
+		if (StringX::indexOf(url, "://", 0, index)) {
+			if (StringX::indexOf(url, "/", index + 3, part)) {
+				if (StringX::split2(StringX::substring(url, part), "?", firstPart, secondPart)) {
 					return VariableString::newVariable(firstPart);
 				};
-				return VariableString::newVariable(String::substring(url, part));
+				return VariableString::newVariable(StringX::substring(url, part));
 			};
 			return VariableString::newVariable("/");
 		};
@@ -152,10 +152,10 @@ namespace XYO::QuantumScript::Extension::URL {
 		String firstPart;
 		String secondPart;
 		String thirdPart;
-		if (String::indexOf(url, "://", 0, index)) {
-			if (String::indexOf(url, "/", index + 3, part)) {
-				if (String::split2(String::substring(url, part + 1), "?", firstPart, secondPart)) {
-					if (String::split2(secondPart, "#", firstPart, thirdPart)) {
+		if (StringX::indexOf(url, "://", 0, index)) {
+			if (StringX::indexOf(url, "/", index + 3, part)) {
+				if (StringX::split2(StringX::substring(url, part + 1), "?", firstPart, secondPart)) {
+					if (StringX::split2(secondPart, "#", firstPart, thirdPart)) {
 						return VariableString::newVariable(firstPart);
 					};
 					return VariableString::newVariable(secondPart);
@@ -175,12 +175,12 @@ namespace XYO::QuantumScript::Extension::URL {
 		size_t part;
 		String firstPart;
 		String secondPart;
-		if (String::indexOf(url, "://", 0, index)) {
-			if (String::indexOf(url, "/", index + 3, part)) {
-				if (String::split2(String::substring(url, part), "#", firstPart, secondPart)) {
+		if (StringX::indexOf(url, "://", 0, index)) {
+			if (StringX::indexOf(url, "/", index + 3, part)) {
+				if (StringX::split2(StringX::substring(url, part), "#", firstPart, secondPart)) {
 					return VariableString::newVariable(firstPart);
 				};
-				return VariableString::newVariable(String::substring(url, part));
+				return VariableString::newVariable(StringX::substring(url, part));
 			};
 		};
 		return VariableNull::newVariable();
