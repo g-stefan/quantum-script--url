@@ -71,8 +71,8 @@ namespace XYO::QuantumScript::Extension::URL {
 
 		String url = (arguments->index(0))->toString();
 		size_t index;
-		if (url.indexOf( "://", 0, index)) {
-			return VariableString::newVariable(url.substring( 0, index));
+		if (url.indexOf("://", 0, index)) {
+			return VariableString::newVariable(url.substring(0, index));
 		};
 		return VariableNull::newVariable();
 	};
@@ -87,14 +87,14 @@ namespace XYO::QuantumScript::Extension::URL {
 		size_t part;
 		String firstPart;
 		String secondPart;
-		if (url.indexOf( "://", 0, index)) {
-			if (url.indexOf( "/", index + 3, part)) {
-				if (url.substring( index + 3, part - (index + 3)).split2( "@", firstPart, secondPart)) {
+		if (url.indexOf("://", 0, index)) {
+			if (url.indexOf("/", index + 3, part)) {
+				if (url.substring(index + 3, part - (index + 3)).split2("@", firstPart, secondPart)) {
 					return VariableString::newVariable(secondPart);
 				};
-				return VariableString::newVariable(url.substring( index + 3, part - (index + 3)));
+				return VariableString::newVariable(url.substring(index + 3, part - (index + 3)));
 			};
-			return VariableString::newVariable(url.substring( index + 3));
+			return VariableString::newVariable(url.substring(index + 3));
 		};
 		return VariableNull::newVariable();
 	};
@@ -109,9 +109,9 @@ namespace XYO::QuantumScript::Extension::URL {
 		size_t part;
 		String firstPart;
 		String secondPart;
-		if (url.indexOf( "://", 0, index)) {
-			if (url.indexOf( "/", index + 3, part)) {
-				if (url.substring( index + 3, part - (index + 3)).split2( "@", firstPart, secondPart)) {
+		if (url.indexOf("://", 0, index)) {
+			if (url.indexOf("/", index + 3, part)) {
+				if (url.substring(index + 3, part - (index + 3)).split2("@", firstPart, secondPart)) {
 					return VariableString::newVariable(firstPart);
 				};
 			};
@@ -129,12 +129,12 @@ namespace XYO::QuantumScript::Extension::URL {
 		size_t part;
 		String firstPart;
 		String secondPart;
-		if (url.indexOf( "://", 0, index)) {
-			if (url.indexOf( "/", index + 3, part)) {
-				if (url.substring( part).split2( "?", firstPart, secondPart)) {
+		if (url.indexOf("://", 0, index)) {
+			if (url.indexOf("/", index + 3, part)) {
+				if (url.substring(part).split2("?", firstPart, secondPart)) {
 					return VariableString::newVariable(firstPart);
 				};
-				return VariableString::newVariable(url.substring( part));
+				return VariableString::newVariable(url.substring(part));
 			};
 			return VariableString::newVariable("/");
 		};
@@ -152,10 +152,10 @@ namespace XYO::QuantumScript::Extension::URL {
 		String firstPart;
 		String secondPart;
 		String thirdPart;
-		if (url.indexOf( "://", 0, index)) {
-			if (url.indexOf( "/", index + 3, part)) {
-				if (url.substring( part + 1).split2( "?", firstPart, secondPart)) {
-					if (secondPart.split2( "#", firstPart, thirdPart)) {
+		if (url.indexOf("://", 0, index)) {
+			if (url.indexOf("/", index + 3, part)) {
+				if (url.substring(part + 1).split2("?", firstPart, secondPart)) {
+					if (secondPart.split2("#", firstPart, thirdPart)) {
 						return VariableString::newVariable(firstPart);
 					};
 					return VariableString::newVariable(secondPart);
@@ -175,12 +175,12 @@ namespace XYO::QuantumScript::Extension::URL {
 		size_t part;
 		String firstPart;
 		String secondPart;
-		if (url.indexOf( "://", 0, index)) {
-			if (url.indexOf( "/", index + 3, part)) {
-				if (url.substring( part).split2( "#", firstPart, secondPart)) {
+		if (url.indexOf("://", 0, index)) {
+			if (url.indexOf("/", index + 3, part)) {
+				if (url.substring(part).split2("#", firstPart, secondPart)) {
 					return VariableString::newVariable(firstPart);
 				};
-				return VariableString::newVariable(url.substring( part));
+				return VariableString::newVariable(url.substring(part));
 			};
 		};
 		return VariableNull::newVariable();
