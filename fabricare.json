@@ -12,7 +12,24 @@
 					"quantum-script",
 					"quantum-script--console"
 				]
+			},
+			{
+				"name": "quantum-script--url.static",
+				"make": "lib",
+				"category": "make",
+				"SPDX-License-Identifier": "MIT",
+				"sourcePath" : "XYO/QuantumScript.Extension/URL",
+				"dependency" : [
+					"quantum-script.static",
+					"quantum-script--console.static"
+				],
+				"dependencyDefines" : [
+					"XYO_QUANTUMSCRIPT_EXTENSION_URL_LIBRARY"
+				],
+				"linkVersion": "quantum-script--url",
+				"crt": "static"
 			}
+
 		]
 	}
 }
