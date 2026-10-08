@@ -7,7 +7,7 @@ messageAction("test");
 
 // ---
 
-for(var k=1;k<=1;++k){
+for(var k=1;k<=2;++k){
 	exitIf(Shell.execute("quantum-script  --execution-time test/test.000"+k+".js"));
 };
 

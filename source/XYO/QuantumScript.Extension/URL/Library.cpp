@@ -50,7 +50,7 @@ namespace XYO::QuantumScript::Extension::URL {
 		String out;
 		size_t k;
 		int value;
-		char buf[4];
+		char buf[3];
 		for (k = 0; k < in.length(); ++k) {
 			if (
 			    (in[k] >= 'A' && in[k] <= 'Z') || (in[k] >= 'a' && in[k] <= 'z') || (in[k] == '.') || (in[k] == '!') || (in[k] == '~') || (in[k] == '*') || (in[k] == '\'') || (in[k] == '(') || (in[k] == ')')) {
@@ -58,7 +58,7 @@ namespace XYO::QuantumScript::Extension::URL {
 				continue;
 			};
 			out << '%';
-			sprintf(buf, "%02X", in[k]);
+			snprintf(buf, sizeof(buf), "%02X", static_cast<unsigned char>(in[k]));
 			out << buf;
 		};
 		return VariableString::newVariable(out);
